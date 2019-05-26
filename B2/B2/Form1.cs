@@ -19,8 +19,43 @@ namespace B2
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            string user = Console.ReadLine();
-            label1.Text = user;
+            int equation = 0, num1, num2;
+            if (int.TryParse(Tbox_num1.Text, out num1))
+            {
+                label1.Text = num1.ToString();
+            }
+
+            if (int.TryParse(Tbox_num2.Text, out num2))
+            {
+                label1.Text = num2.ToString();
+            }
+
+            switch (Tbox_operation.Text)
+            {
+                case "+":
+                    equation = num1 + num2;
+                    break;
+                case "-":
+                    equation = num1 - num2;
+                    break;
+                case "/":
+                    equation = num1 / num2;
+                    break;
+                case "*":
+                    equation = num1 * num2;
+                    break;
+                case "pow":
+                    equation = (int)Math.Pow(num1, num2);
+                    break;
+                default:
+                    label1.Text = "error with equation";
+                    break;
+
+            }
+
+            label1.Text = equation.ToString();
+
+
         }
     }
 }
