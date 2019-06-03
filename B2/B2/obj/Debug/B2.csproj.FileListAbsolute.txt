@@ -8,3 +8,5 @@ D:\B2\B2\B2\obj\Debug\B2.csproj.CoreCompileInputs.cache
 D:\B2\B2\B2\obj\Debug\B2.exe
 D:\B2\B2\B2\obj\Debug\B2.pdb
 D:\B2\B2\B2\obj\Debug\B2.Form1.resources
+D:\B2\B2\B2\bin\Debug\System.Memory.dll
+D:\B2\B2\B2\obj\Debug\B2.csproj.CopyComplete

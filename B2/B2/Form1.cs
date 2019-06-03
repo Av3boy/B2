@@ -7,54 +7,61 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Management;
 
 namespace B2
 {
     public partial class Form1 : Form
     {
+
+        Calculator calculator = new Calculator();
+        VoiceSynthentizer synthentizer = new VoiceSynthentizer();
+
+
         public Form1()
         {
             InitializeComponent();
+
+            Lbl_CurrentAudioInput.Text += GetCurrentAudioInput();
+            Lbl_CurrentAudioOutput.Text += GetCurrentAudioOutput();
+
+            Lbl_Microphone.Text += "ses";
+
+            synthentizer.Speak();
+        }
+        
+        public string GetCurrentAudioInput()
+        {
+
+            ManagementObjectSearcher objSearcher = new ManagementObjectSearcher(
+            "SELECT * FROM Win32_SoundDevice");
+
+            ManagementObjectCollection objCollection = objSearcher.Get();
+
+            foreach (ManagementObject obj in objCollection)
+            {
+                foreach (PropertyData property in obj.Properties)
+                {
+                    Console.Out.WriteLine(String.Format("{0}:{1}", property.Name, property.Value) + "\n");
+                }
+            }
+
+            return "ses";
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private string GetCurrentAudioOutput()
         {
-            int equation = 0, num1, num2;
-            if (int.TryParse(Tbox_num1.Text, out num1))
-            {
-                label1.Text = num1.ToString();
-            }
+            return "ses";
 
-            if (int.TryParse(Tbox_num2.Text, out num2))
-            {
-                label1.Text = num2.ToString();
-            }
+        }
 
-            switch (Tbox_operation.Text)
-            {
-                case "+":
-                    equation = num1 + num2;
-                    break;
-                case "-":
-                    equation = num1 - num2;
-                    break;
-                case "/":
-                    equation = num1 / num2;
-                    break;
-                case "*":
-                    equation = num1 * num2;
-                    break;
-                case "pow":
-                    equation = (int)Math.Pow(num1, num2);
-                    break;
-                default:
-                    label1.Text = "error with equation";
-                    break;
+        private void Button_Calculate_Click(object sender, EventArgs e)
+        {
 
-            }
+            if (int.TryParse(Tbox_num1.Text, out int num1) & int.TryParse(Tbox_num2.Text, out int num2))
+                MessageBox.Show("Error with calculation");
 
-            label1.Text = equation.ToString();
-
+            label1.Text = calculator.Calculate(num1, num2, Tbox_operation.Text).ToString();
 
         }
     }
