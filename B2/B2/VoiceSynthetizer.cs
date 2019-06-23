@@ -16,30 +16,31 @@ namespace B2
 
     public class VoiceSynthentizer
     {
-
+        public bool isActive;
         Form1 form;
 
-        public void ActivateSynthentizer()
+        public bool IsActivateSynthentizer()
         {
             form = new Form1();
+            if (isActive)
+                isActive = false;
+            else isActive = true;
+
+            return isActive;
         }
 
-        public void DisableSynthentizer()
-        {
-
-        }
-
-        public void Speak()
+        public void Speak(string toSpeak)
         {
             SpeechSynthesizer synthesizer = new SpeechSynthesizer();
             synthesizer.Volume = 100;  // 0...100
             synthesizer.Rate = -2;     // -10...10
 
-            // Synchronous
-            synthesizer.Speak("Hello World");
+            if (isActive)
+            {
+                // Synchronous speech
+                synthesizer.Speak(toSpeak);
 
-            // Asynchronous
-            synthesizer.SpeakAsync("Hello World");
+            }
         }
     }
 }
