@@ -9,9 +9,9 @@ namespace B2
 {
     public class Calculator
     {
-        public int Calculate(int num1, int num2, string operation)
+        public float Calculate(float num1, float num2, string operation)
         {
-            int equation = 0;
+            float equation = 0;
 
             switch (operation)
             {

@@ -35,12 +35,13 @@
             this.Tbox_operation = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.VoiceActivation = new System.Windows.Forms.GroupBox();
+            this.Lbl_CurrentAudioInput = new System.Windows.Forms.Label();
+            this.Lbl_CurrentAudioOutput = new System.Windows.Forms.Label();
+            this.Btn_SpeechRecognition = new System.Windows.Forms.Button();
+            this.Lbl_Microphone = new System.Windows.Forms.Label();
             this.Lbl_Synthentizer = new System.Windows.Forms.Label();
             this.Btn_Synthentizer = new System.Windows.Forms.Button();
-            this.Lbl_Microphone = new System.Windows.Forms.Label();
-            this.Btn_SpeechRecognition = new System.Windows.Forms.Button();
-            this.Lbl_CurrentAudioOutput = new System.Windows.Forms.Label();
-            this.Lbl_CurrentAudioInput = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.VoiceActivation.SuspendLayout();
             this.SuspendLayout();
@@ -110,6 +111,43 @@
             this.VoiceActivation.TabIndex = 6;
             this.VoiceActivation.TabStop = false;
             // 
+            // Lbl_CurrentAudioInput
+            // 
+            this.Lbl_CurrentAudioInput.AutoSize = true;
+            this.Lbl_CurrentAudioInput.Location = new System.Drawing.Point(35, 190);
+            this.Lbl_CurrentAudioInput.Name = "Lbl_CurrentAudioInput";
+            this.Lbl_CurrentAudioInput.Size = new System.Drawing.Size(101, 13);
+            this.Lbl_CurrentAudioInput.TabIndex = 5;
+            this.Lbl_CurrentAudioInput.Text = "Current Audio Input:";
+            // 
+            // Lbl_CurrentAudioOutput
+            // 
+            this.Lbl_CurrentAudioOutput.AutoSize = true;
+            this.Lbl_CurrentAudioOutput.Location = new System.Drawing.Point(35, 81);
+            this.Lbl_CurrentAudioOutput.Name = "Lbl_CurrentAudioOutput";
+            this.Lbl_CurrentAudioOutput.Size = new System.Drawing.Size(109, 13);
+            this.Lbl_CurrentAudioOutput.TabIndex = 4;
+            this.Lbl_CurrentAudioOutput.Text = "Current Audio Output:";
+            // 
+            // Btn_SpeechRecognition
+            // 
+            this.Btn_SpeechRecognition.Location = new System.Drawing.Point(54, 154);
+            this.Btn_SpeechRecognition.Name = "Btn_SpeechRecognition";
+            this.Btn_SpeechRecognition.Size = new System.Drawing.Size(57, 23);
+            this.Btn_SpeechRecognition.TabIndex = 3;
+            this.Btn_SpeechRecognition.Text = "Activate";
+            this.Btn_SpeechRecognition.UseVisualStyleBackColor = true;
+            this.Btn_SpeechRecognition.Click += new System.EventHandler(this.Btn_SpeechRecognition_Click);
+            // 
+            // Lbl_Microphone
+            // 
+            this.Lbl_Microphone.AutoSize = true;
+            this.Lbl_Microphone.Location = new System.Drawing.Point(35, 125);
+            this.Lbl_Microphone.Name = "Lbl_Microphone";
+            this.Lbl_Microphone.Size = new System.Drawing.Size(76, 13);
+            this.Lbl_Microphone.TabIndex = 2;
+            this.Lbl_Microphone.Text = "Microphone is:";
+            // 
             // Lbl_Synthentizer
             // 
             this.Lbl_Synthentizer.AutoSize = true;
@@ -127,48 +165,22 @@
             this.Btn_Synthentizer.TabIndex = 0;
             this.Btn_Synthentizer.Text = "Activate";
             this.Btn_Synthentizer.UseVisualStyleBackColor = true;
+            this.Btn_Synthentizer.Click += new System.EventHandler(this.Btn_Synthentizer_Click);
             // 
-            // Lbl_Microphone
+            // groupBox2
             // 
-            this.Lbl_Microphone.AutoSize = true;
-            this.Lbl_Microphone.Location = new System.Drawing.Point(35, 125);
-            this.Lbl_Microphone.Name = "Lbl_Microphone";
-            this.Lbl_Microphone.Size = new System.Drawing.Size(76, 13);
-            this.Lbl_Microphone.TabIndex = 2;
-            this.Lbl_Microphone.Text = "Microphone is:";
-            // 
-            // Btn_SpeechRecognition
-            // 
-            this.Btn_SpeechRecognition.Location = new System.Drawing.Point(54, 154);
-            this.Btn_SpeechRecognition.Name = "Btn_SpeechRecognition";
-            this.Btn_SpeechRecognition.Size = new System.Drawing.Size(57, 23);
-            this.Btn_SpeechRecognition.TabIndex = 3;
-            this.Btn_SpeechRecognition.Text = "Activate";
-            this.Btn_SpeechRecognition.UseVisualStyleBackColor = true;
-            // 
-            // Lbl_CurrentAudioOutput
-            // 
-            this.Lbl_CurrentAudioOutput.AutoSize = true;
-            this.Lbl_CurrentAudioOutput.Location = new System.Drawing.Point(35, 81);
-            this.Lbl_CurrentAudioOutput.Name = "Lbl_CurrentAudioOutput";
-            this.Lbl_CurrentAudioOutput.Size = new System.Drawing.Size(109, 13);
-            this.Lbl_CurrentAudioOutput.TabIndex = 4;
-            this.Lbl_CurrentAudioOutput.Text = "Current Audio Output:";
-            // 
-            // Lbl_CurrentAudioInput
-            // 
-            this.Lbl_CurrentAudioInput.AutoSize = true;
-            this.Lbl_CurrentAudioInput.Location = new System.Drawing.Point(35, 190);
-            this.Lbl_CurrentAudioInput.Name = "Lbl_CurrentAudioInput";
-            this.Lbl_CurrentAudioInput.Size = new System.Drawing.Size(101, 13);
-            this.Lbl_CurrentAudioInput.TabIndex = 5;
-            this.Lbl_CurrentAudioInput.Text = "Current Audio Input:";
+            this.groupBox2.Location = new System.Drawing.Point(216, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(180, 245);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 574);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.VoiceActivation);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -196,6 +208,7 @@
         private System.Windows.Forms.Label Lbl_CurrentAudioOutput;
         private System.Windows.Forms.Button Btn_SpeechRecognition;
         private System.Windows.Forms.Label Lbl_Microphone;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 
